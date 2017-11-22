@@ -1,0 +1,11 @@
+config BR2_PACKAGE_PARSE
+	bool "parse"
+	help
+	Parse is a developer-friendly cloud platform 
+	that lets you get an IoT project running in 
+	minutes. Parse Embedded C SDKs provide support 
+	for Arduino Yún, Unix, and RTOS C platforms.
+	These SDKs let you use Parse for building Internet 
+	of Things (IoT) applications with connected devices.
+
+	https://github.com/parse-community/parse-embedded-sdks
