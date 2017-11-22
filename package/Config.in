@@ -1970,4 +1970,8 @@ menu "Parse Library"
     source "package/parse/Config.in"
 endmenu
 
+menu "Sensworx Application"
+    source "package/gateway/Config.in"
+endmenu
+
 endmenu
