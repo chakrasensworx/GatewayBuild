@@ -4,24 +4,23 @@
 #
 ################################################################################
 PARSE_VERSION = master
-PARSE_SDK	= parse-embedded-sdks-$(PARSE_VERSION)
-PARSE_SOURCE = parse-embedded-sdks-$(PARSE_VERSION).zip
-PARSE_SITE = https://github.com/parse-community/parse-embedded-sdks
-PARSE_LICENSE = Parse 
-PARSE_LICENSE_FILES = LICENSE 
+PARSE_SOURCE = $(PARSE_VERSION).zip
+PARSE_SDK = parse-embedded-sdks
+PARSE_UNZIP_DIR = $(PARSE_SDK)-$(PARSE_VERSION)
+PARSE_SITE = https://github.com/parse-community/$(PARSE_SDK)/archive
+PARSE_LICENSE = Parse
+PARSE_LICENSE_FILES = LICENSE
 PARSE_INSTALL_STAGING = YES
-PARSE_DEPENDANCIES = libcurl libuuid host-pkgconf host-autoconf
+PARSE_DEPENDENCIES = libcurl util-linux host-pkgconf host-autoconf
 PARSE_AUTORECONF = YES
 
 define PARSE_EXTRACT_CMDS
-	rm -rf $(@D)
-	$(UNZIP) $(DL_DIR)/$(PARSE_SOURCE) -d $(@D)
-	mv $(@D)/$(PARSE_SDK)/* $(@D)
+	$(UNZIP) -d $(@D) $(DL_DIR)/$(PARSE_SOURCE)
+	mv $(@D)/$(PARSE_UNZIP_DIR)/* $(@D)
+	rm -rf $(@D)/$(PARSE_SDK)
 	mkdir $(@D)/m4
 	touch $(@D)/README
-	rm -rf $(@D)/$(PARSE_SDK)
 endef
 
 
 $(eval $(autotools-package))
-$(eval $(host-autotools-package))

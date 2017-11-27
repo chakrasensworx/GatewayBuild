@@ -1,5 +1,7 @@
 config BR2_PACKAGE_PARSE
 	bool "parse"
+    select BR2_PACKAGE_LIBCURL
+	select BR2_PACKAGE_UTIL_LINUX_UUIDD
 	help
 	Parse is a developer-friendly cloud platform 
 	that lets you get an IoT project running in 
