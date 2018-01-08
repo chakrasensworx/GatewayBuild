@@ -18,8 +18,9 @@ define GATEWAY_INSTALL_TARGET_CMDS
 	rm -rf $(TARGET_DIR)/etc/ppp/peers/fona
 	rm -rf $(TARGET_DIR)/etc/sensworx_gateway.conf
 	$(INSTALL) -D -m 0755 $(@D)/gateway $(TARGET_DIR)/usr/bin/
+	$(INSTALL) -D -m 0755 $(@D)/gateway_console $(TARGET_DIR)/usr/bin/
+	$(INSTALL) -D -m 0755 $(@D)/gateway_testing $(TARGET_DIR)/usr/bin/
 	rsync -avz $(@D)/etc $(TARGET_DIR)/
-@echo "Harini"
 endef
 
 $(eval $(generic-package))
